@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import os
 import re
-import ipaddress
+import fwblock
 
 sshlog = open("/home/marco/os_scripting/Block_ssh_brute_force/sshdlog", "r")
 #print(sshlog.readlines())
@@ -17,8 +17,12 @@ for line in sshlog.readlines():
        ip = ip.strip("['']")
        #print(ip)
        bad_ip.add(ip)
-print(bad_ip)
+#print(bad_ip)
 
+
+for ip in bad_ip:
+    fwblock.block_ip(ip)
+    print(ip)
 
 
 sshlog.close()
