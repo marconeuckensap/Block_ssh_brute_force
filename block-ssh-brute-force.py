@@ -15,13 +15,9 @@ for line in sshlog.readlines():
        ip = str(re.findall("[0-9]*[0-9][.][0-9]*[0-9][.][0-9]*[0-9][.][0-9]*[0-9]", line))
        #remove []
        ip = ip.strip("['']")
-       print(ip)
-    
-
-
-
-
-
+       #print(ip)
+       bad_ip.add(ip)
+print(bad_ip)
 
 
 
